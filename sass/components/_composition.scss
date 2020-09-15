@@ -1,0 +1,80 @@
+.composition{
+
+    position: relative;
+
+    &__photo{ 
+
+        width: 55%;
+        box-shadow: 0 1.5rem 2rem rgba($color-black,.4);
+        border-radius: 2px;
+        position: absolute;
+        z-index: 10;
+        transition: all 0.3s;
+
+        @include respond(tab-port){
+            position: relative;
+            float: left;
+            width: 33.3333%;
+            box-shadow: 0 1.5rem 1.5rem rgba($color-black,.3);
+        }
+        
+
+        &--p1{
+            left: 0;
+            top: -2rem;
+
+            @include respond(tab-port){
+                top: 0;
+                left: 3rem;
+                transform: scale(1.2);
+            }
+
+        }
+
+        &--p2{
+            top: 4rem;
+            right: 0;
+
+            @include respond(tab-port){
+                top: 0;
+                z-index: 30;
+                transform: scale(1.4);
+            }
+            
+        }
+
+        &--p3{
+            left: 20%;
+            top:12rem;    
+            
+            @include respond(tab-port){
+                top: 0;
+                left: -3rem;
+                transform: scale(1.2);
+            }
+        }
+
+        &:hover{
+            outline: 1.5rem solid $color-primary;
+            outline-offset: 2rem;
+            transform: scale(1.1) translateY(.5rem);
+            box-shadow: 0 1.4rem 4rem rgba($color-black,.4);
+            z-index: 20;
+
+            @include respond(tab-port){
+                outline: 1rem solid $color-primary;
+                outline-offset: 1rem;
+                transform: scale(1.5) translateY(.5rem);
+                z-index: 50;
+            }
+        }
+
+        
+    }
+
+    &:hover &__photo:not(:hover){
+        transform: scale(.95);
+    }
+    
+    
+}

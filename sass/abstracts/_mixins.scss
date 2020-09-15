@@ -1,0 +1,59 @@
+@mixin clearfix{
+
+    &::after{
+        content: "";
+    display:table;
+    clear: both;
+    }
+    
+}
+
+//Media Query Manager
+/*
+0-600       phone
+600-900     Tablet portrait
+900-1200    Tablet landsacpe
+(1200- 1000) is where our normal style apply
+1800px +    Big desktop
+
+*/
+
+
+// @mixin respond-phone{
+//     @media (max-width:600px){ @content };
+// }
+
+/*
+
+0-600       phone
+600-900     tab-port
+900-1200    tab-land
+(1200- 1000) is where our normal style apply
+1800px +    big-des
+
+1em = 16px;
+
+Order :- Base + typography > general layout + grid > pages layouts > components
+*/
+
+@mixin respond($breakpoint) {
+
+    @if $breakpoint == phone{
+        @media only screen and (max-width:37.5em){ @content }; // 600px
+    }
+
+    @if $breakpoint == tab-port{
+        @media only screen and (max-width:56.25em){ @content }; //900px
+    }
+
+    @if $breakpoint == tab-land{
+        @media only screen and (max-width:75em){ @content }; //1200px
+    }
+
+    @if $breakpoint == big-des{
+        @media only screen and (min-width:112.5em){ @content }; //1800px
+    }
+    
+}
+
+
